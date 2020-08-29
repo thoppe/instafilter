@@ -3,7 +3,6 @@ import numpy as np
 from utils import features_from_image
 import torch
 from pathlib import Path
-import cv2
 
 model_location = Path('models')
 
@@ -61,10 +60,12 @@ class Instafilter:
 
         return bgr      
 
-
-F = Instafilter("Nashville")
-img1 = cv2.imread('samples/Normal.jpg')
-img2 = F(img1)
-cv2.imwrite("example2.jpg", img2)
+if __name__ == "__main__":
+    import cv2
+    
+    F = Instafilter("Nashville")
+    img1 = cv2.imread('samples/Normal.jpg')
+    img2 = F(img1)
+    cv2.imwrite("example2.jpg", img2)
         
 
