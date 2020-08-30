@@ -17,7 +17,6 @@ loss_func = torch.optim.Adam
 loss_func = torch.optim.AdamW
 
 
-
 f_source = "samples/Normal.jpg"
 f_target = "samples/Earlybird.jpg"
 data = ColorizedDataset(f_source, f_target, device=device)

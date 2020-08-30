@@ -61,16 +61,16 @@ if __name__ == "__main__":
 
     f_source = "samples/Normal.jpg"
 
-    for f_target in Path('samples').glob('*.jpg'):
-        
+    for f_target in Path("samples").glob("*.jpg"):
+
         f_model = Path("models") / f_target.name.replace(".jpg", ".pt")
-                
+
         if f_target.name == f_source:
             continue
-        
+
         if f_model.exists():
             continue
-        
+
         print("Training", f_model)
-        
+
         train_image_pair("samples/Normal.jpg", f_target, f_model)

@@ -4,6 +4,7 @@ from torch import nn
 from torch.utils.data import Dataset
 from utils import features_from_image
 
+
 class ColorNet(nn.Module):
     def __init__(self):
         super().__init__()
