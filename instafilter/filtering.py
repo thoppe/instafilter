@@ -10,6 +10,12 @@ model_location = Path(__file__).resolve().parent / "models"
 
 class Instafilter:
     def __init__(self, name, device="cuda"):
+        """
+        Load an instafilter for processing.
+        name must be one from Instafilter.get_models()
+        device should be one of "cuda" (GPU) or "cpu".
+        """
+
         self.device = device
         self.net = self.load_model(name)
 
@@ -21,7 +27,7 @@ class Instafilter:
         f_model = model_location / (name + ".pt")
 
         if not f_model.exists():
-            names = ' '.join(sorted(self.get_models()))
+            names = " ".join(sorted(self.get_models()))
             raise KeyError(f"Model {name} not found. Known models: {names}")
 
         state = torch.load(f_model)
@@ -33,13 +39,36 @@ class Instafilter:
 
         return net
 
+    @staticmethod
+    def _load_image_from_filename(f_image):
+        """
+        Loads an image from a filename. Raises an error if the file
+        does not exist. Uses CV2.
+        """
+
+        try:
+            import cv2
+        except:
+            raise ImportError(
+                "cv2 required to load images from a file, run\n"
+                "pip install opencv-python"
+            )
+
+        return cv2.imread(f_image)
+
     def __call__(self, img):
         """
         Filters the image with the loaded model. Input img is expected to
-        be in BGR with the dimensions (height, width, channels=3).
+        be in BGR with the dimensions (height, width, channels).
 
         Returns an image in the same format and shape.
         """
+
+        if isinstance(img, (str, Path)):
+            img = self._load_image_from_filename(img)
+
+        # Remove alpha channel if it exists
+        img = img[:, :, :3]
 
         f0 = features_from_image(img)
         f0 = torch.tensor(f0).to(self.device)

@@ -22,4 +22,3 @@ class ColorNet(nn.Module):
         x = torch.tanh(self.fc4(x))
 
         return x
-
