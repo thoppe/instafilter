@@ -1,4 +1,5 @@
-# instafilter
+![instafilter](development/header_image.jpg)
+
 Instagram-like filters with deep learning
 
     pip install instafilter
@@ -25,5 +26,6 @@ See the code in [`train`](`train') to train a new model.
 
 ## Roadmap
 
-+ Publish on pypi
 + Medium post
+
+Header image sourced from [Will Terra](https://unsplash.com/photos/qIY9mUKT540) and modified with instafilter.

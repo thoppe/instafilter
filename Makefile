@@ -18,3 +18,8 @@ dist_test:
 	rm -rvf dist
 	python setup.py sdist
 	twine upload -r test dist/*
+
+dist_production:
+	rm -rvf dist
+	python setup.py sdist
+	twine upload dist/*
