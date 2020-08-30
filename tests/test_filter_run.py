@@ -44,7 +44,7 @@ def test_filter_image():
     """
     Filter an image. Check that it changed.
     """
-    
+
     model = Instafilter("Lo-Fi")
 
     f_image = __local__ / "Normal.jpg"

@@ -23,7 +23,7 @@ setuptools.setup(
     include_package_data=True,
     description=description,
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     version=__version__,  # noqa: F821
     # The project's main homepage.
     url=f"https://github.com/thoppe/{package_name}",

@@ -9,7 +9,7 @@ model_location = Path(__file__).resolve().parent / "models"
 
 
 class Instafilter:
-    def __init__(self, name, device="cuda"):
+    def __init__(self, name, device="cuda", batch_size=2 ** 16):
         """
         Load an instafilter for processing.
         name must be one from Instafilter.get_models()
@@ -18,6 +18,7 @@ class Instafilter:
 
         self.device = device
         self.net = self.load_model(name)
+        self.batch_size = batch_size
 
     @staticmethod
     def get_models():
@@ -75,9 +76,16 @@ class Instafilter:
         img = img[:, :, :3]
 
         f0 = features_from_image(img)
-        f0 = torch.tensor(f0).to(self.device)
-        f1 = self.net(f0)
-        f1 = f1.clone().detach().cpu().numpy()
+
+        f1 = []
+        for ndx in range(0, len(f0), self.batch_size):
+            batch = f0[ndx : min(ndx + self.batch_size, len(f0))]
+            batch = torch.tensor(batch).to(self.device)
+            result = self.net(batch)
+            result = result.clone().detach().cpu().numpy()
+            f1.append(result)
+
+        f1 = np.vstack(f1)
 
         bgr = np.clip(f1[:, :3] * 255, 0, 255).astype(np.uint8)
         bgr = bgr.reshape(img.shape)

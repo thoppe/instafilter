@@ -8,8 +8,8 @@ coverage:
 	xdg-open htmlcov/index.html
 
 lint:
-	black instafilter tests train_new_model setup.py --line-length 80
-	flake8
+	black instafilter tests development setup.py --line-length 80
+	flake8 instafilter tests --ignore=E203
 
 clean:
 	rm -rvf cover instafilter.egg-info/ htmlcov dist *~
