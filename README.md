@@ -1,6 +1,7 @@
 # instafilter
 Instagram-like filters with deep learning
 
+    pip install instafilter
 
 
 ``` python

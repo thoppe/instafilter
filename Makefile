@@ -12,4 +12,9 @@ lint:
 	flake8
 
 clean:
-	rm -rvf cover instafilter.egg-info/ htmlcov *~
+	rm -rvf cover instafilter.egg-info/ htmlcov dist *~
+
+dist_test:
+	rm -rvf dist
+	python setup.py sdist
+	twine upload -r test dist/*

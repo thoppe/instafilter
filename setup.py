@@ -12,7 +12,9 @@ exec(open(f_version).read())
 # Get the long description from the relevant file
 description = "Images filters learned from Instagram. Implemented in pytorch."
 
-long_description = f"{package_name} ======================== {description}" ""
+with open("README.md") as FIN:
+    long_description = FIN.read()
+
 
 setuptools.setup(
     name=package_name,
@@ -21,6 +23,7 @@ setuptools.setup(
     include_package_data=True,
     description=description,
     long_description=long_description,
+    long_description_content_type='text/markdown',
     version=__version__,  # noqa: F821
     # The project's main homepage.
     url=f"https://github.com/thoppe/{package_name}",
