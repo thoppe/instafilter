@@ -54,7 +54,10 @@ class Instafilter:
                 "pip install opencv-python"
             )
 
-        return cv2.imread(f_image)
+        if not Path(f_image).exists():
+            raise FileNotFoundError(f_image)
+
+        return cv2.imread(str(f_image))
 
     def __call__(self, img):
         """

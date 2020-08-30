@@ -1,6 +1,7 @@
 import cv2
 from pathlib import Path
 from instafilter import Instafilter
+import instafilter
 
 scale_size = 0.741
 

@@ -1,7 +1,9 @@
 # instafilter
 Instagram-like filters with deep learning
 
-```
+
+
+``` python
 from instafilter import Instafilter
 
 model = Instafilter("Lo-fi")
@@ -18,8 +20,9 @@ new_image = model("myimage.jpg")
 [![Example image: Moon](examples/Moon.jpg)](examples/Moon.jpg)
 
 
+See the code in [`train`](`train') to train a new model.
+
 ## Roadmap
 
-+ Add tests
 + Publish on pypi
 + Medium post
