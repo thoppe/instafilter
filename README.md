@@ -19,7 +19,7 @@ cv2.imwrite("modified_image.jpg", new_image)
 
 ## Sample images
 
-Browse samples for every filter in [`development/examples`](`development/examples').
+Browse samples for every filter in [`development/examples`](development/examples).
 
 **Ludwig**
 [![Example image: Ludwig](development/examples/Ludwig.jpg)](examples/Ludwig.jpg)
@@ -32,7 +32,7 @@ Browse samples for every filter in [`development/examples`](`development/example
 
 ## Train
 
-See the code in [`development/train_new_model`](`development/train_new_model') to train a new model.
+See the code in [`development/train_new_model`](development/train_new_model) to train a new model.
 
 ## Roadmap
 
