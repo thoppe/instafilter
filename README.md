@@ -1,9 +1,9 @@
 # instafilter
 Instagram-like filters with deep learning
 
-[![Example image: Ludwig](samples/Ludwig.jpg)](samples/Ludwig.jpg)
-[![Example image: Stinson](samples/Stinson.jpg)](samples/Stinson.jpg)
-[![Example image: Moon](samples/Moon.jpg)](samples/Moon.jpg)
+[![Example image: Ludwig](examples/Ludwig.jpg)](examples/Ludwig.jpg)
+[![Example image: Stinson](examples/Stinson.jpg)](examples/Stinson.jpg)
+[![Example image: Moon](examples/Moon.jpg)](examples/Moon.jpg)
 
 
 
