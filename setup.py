@@ -2,8 +2,7 @@ import setuptools
 import os
 
 
-package_name = 'instafilter'
-
+package_name = "instafilter"
 __local__ = os.path.abspath(os.path.dirname(__file__))
 
 f_version = os.path.join(__local__, package_name, "_version.py")
@@ -13,9 +12,7 @@ exec(open(f_version).read())
 # Get the long description from the relevant file
 description = "Images filters learned from Instagram. Implemented in pytorch."
 
-long_description = f"""{package_name}
-=================================
-{description}"""
+long_description = f"{package_name} ======================== {description}" ""
 
 setuptools.setup(
     name=package_name,
@@ -24,17 +21,18 @@ setuptools.setup(
     include_package_data=True,
     description=description,
     long_description=long_description,
-    version=__version__,
+    version=__version__,  # noqa: F821
     # The project's main homepage.
     url=f"https://github.com/thoppe/{package_name}",
-
     # Author details
     author="Travis Hoppe",
     author_email="travis.hoppe+{package_name}@gmail.com",
     # Choose your license
     license="CC-SA",
-    install_requires=["opencv-python", "Pillow", "imageio", "numpy", "scipy", "tqdm"],
-    
+    install_requires=[
+        "numpy",
+        "torch",
+    ],
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         # How mature is this project? Common values are
@@ -43,20 +41,17 @@ setuptools.setup(
         #   5  -Production/Stable
         "Development Status :: 4 - Beta",
         "Environment :: GPU",
-        
         # Indicate who your project is intended for
         "Intended Audience :: Developers",
         "Intended Audience :: Other Audience",
         "Intended Audience :: Science/Research",
-
         "Topic :: Artistic Software",
-
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
         "Programming Language :: Python :: 3.6",
     ],
     # What does your project relate to?
     keywords="art",
-    test_suite="nose.collector",
-    tests_require=["nose"],
+    test_suite="pytest",
+    tests_require=["pytest"],
 )

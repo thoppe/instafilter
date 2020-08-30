@@ -1,8 +1,6 @@
 import torch
 from torch import nn
 
-from .utils import features_from_image
-
 
 class ColorNet(nn.Module):
     def __init__(self):
@@ -12,8 +10,6 @@ class ColorNet(nn.Module):
         self.fc2 = nn.Linear(25, 25)
         self.fc3 = nn.Linear(25, 25)
         self.fc4 = nn.Linear(25, 5)
-
-        # self.dropout = nn.Dropout(0.2)
 
     def forward(self, x):
         x = torch.tanh(self.fc1(x))

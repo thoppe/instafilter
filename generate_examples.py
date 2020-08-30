@@ -1,19 +1,18 @@
 import cv2
 from pathlib import Path
 from instafilter import Instafilter
-import instafilter
 
 scale_size = 0.741
 
-f_source = 'train_new_model/input/Normal.jpg'
-save_dest = Path('examples')
+f_source = "train_new_model/input/Normal.jpg"
+save_dest = Path("examples")
 save_dest.mkdir(exist_ok=True)
 
 img0 = cv2.imread(f_source)
 
 for name in Instafilter.get_models():
 
-    f_save = save_dest / (name + '.jpg')
+    f_save = save_dest / (name + ".jpg")
     model = Instafilter(name)
 
     img1 = model(f_source)

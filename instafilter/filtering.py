@@ -48,14 +48,15 @@ class Instafilter:
 
         try:
             import cv2
-        except:
+        except ModuleNotFoundError:  # pragma: no cover
+
             raise ImportError(
                 "cv2 required to load images from a file, run\n"
                 "pip install opencv-python"
             )
 
         if not Path(f_image).exists():
-            raise FileNotFoundError(f_image)
+            raise OSError(f_image)
 
         return cv2.imread(str(f_image))
 

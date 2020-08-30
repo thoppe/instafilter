@@ -1,11 +1,16 @@
 from tqdm import tqdm
 from pathlib import Path
-from model import ColorNet, ColorizedDataset
 import torch
 from torch.utils.data import DataLoader
 
+import instafilter
+from instafilter.model import ColorNet
+from dataset import ColorizedDataset
+
 device = "cuda"
 loss_func = torch.optim.AdamW
+
+module_location = Path(instafilter.__file__).resolve().parent
 
 
 def train_image_pair(
@@ -16,6 +21,9 @@ def train_image_pair(
     n_epochs=30,
     max_learning_rate=0.01,
 ):
+
+    assert Path(f_source).exists()
+    assert Path(f_target).exists()
 
     data = ColorizedDataset(f_source, f_target, device=device)
     train_loader = DataLoader(data, batch_size=batch_size, shuffle=True)
@@ -59,11 +67,15 @@ def train_image_pair(
 
 if __name__ == "__main__":
 
-    f_source = "samples/Normal.jpg"
+    model_location = module_location / "models"
+    f_source = "input/Normal.jpg"
 
-    for f_target in Path("samples").glob("*.jpg"):
+    for f_target in Path("input").glob("*.jpg"):
 
-        f_model = Path("models") / f_target.name.replace(".jpg", ".pt")
+        if "Normal.jpg" in str(f_target):
+            continue
+
+        f_model = model_location / f_target.name.replace(".jpg", ".pt")
 
         if f_target.name == f_source:
             continue
@@ -73,4 +85,4 @@ if __name__ == "__main__":
 
         print("Training", f_model)
 
-        train_image_pair("samples/Normal.jpg", f_target, f_model)
+        train_image_pair(f_source, f_target, f_model)

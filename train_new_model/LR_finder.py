@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 from tqdm import tqdm
 import pandas as pd
@@ -8,6 +7,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 from model import ColorNet, ColorizedDataset
 
+import pylab as plt
 
 device = "cuda"
 batch_size = 2 ** 10
@@ -62,9 +62,6 @@ for learning_rate, (data, target) in zip(tqdm(LR), train_loader):
 
     df_data.append({"learning_rate": learning_rate, "loss": smoothed_loss})
 
-
-import pylab as plt
-import seaborn as sns
 
 df = pd.DataFrame(df_data)
 
