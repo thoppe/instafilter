@@ -19,20 +19,20 @@ cv2.imwrite("modified_image.jpg", new_image)
 
 ## Sample images
 
-Browse samples for every filter in [`development/examples/`](`development/examples').
+Browse samples for every filter in [`development/examples`](`development/examples').
 
 **Ludwig**
-[![Example image: Ludwig](examples/Ludwig.jpg)](examples/Ludwig.jpg)
+[![Example image: Ludwig](development/examples/Ludwig.jpg)](examples/Ludwig.jpg)
 
 **Stinson**
-[![Example image: Stinson](examples/Stinson.jpg)](examples/Stinson.jpg)
+[![Example image: Stinson](development/examples/Stinson.jpg)](examples/Stinson.jpg)
 
 **Moon**
-[![Example image: Moon](examples/Moon.jpg)](examples/Moon.jpg)
+[![Example image: Moon](development/examples/Moon.jpg)](examples/Moon.jpg)
 
-## Train.
+## Train
 
-See the code in [`development/train_new_model/`](`development/train_new_model') to train a new model.
+See the code in [`development/train_new_model`](`development/train_new_model') to train a new model.
 
 ## Roadmap
 
