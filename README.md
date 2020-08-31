@@ -1,6 +1,9 @@
 ![instafilter](development/header_image.jpg)
 
-Quickly modifiy images using Instagram-like filters with deep learning in python. Install with:
+[![PyVersion](https://img.shields.io/pypi/pyversions/instafilter.svg)](https://img.shields.io/pypi/pyversions/instafilter.svg)
+[![PyPI](https://img.shields.io/pypi/v/instafilter.svg)](https://pypi.python.org/pypi/instafilter)
+
+Modifiy images using Instagram-like filters in python.
 
     pip install instafilter
 
