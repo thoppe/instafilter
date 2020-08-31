@@ -61,7 +61,7 @@ class Instafilter:
 
         return cv2.imread(str(f_image))
 
-    def __call__(self, img):
+    def __call__(self, img, is_RGB=False):
         """
         Filters the image with the loaded model. Input img is expected to
         be in BGR with the dimensions (height, width, channels).
@@ -74,6 +74,9 @@ class Instafilter:
 
         # Remove alpha channel if it exists
         img = img[:, :, :3]
+
+        if is_RGB:
+            img = img[:, :, ::-1]
 
         f0 = features_from_image(img)
 
@@ -89,5 +92,8 @@ class Instafilter:
 
         bgr = np.clip(f1[:, :3] * 255, 0, 255).astype(np.uint8)
         bgr = bgr.reshape(img.shape)
+
+        if is_RGB:
+            img = img[:, :, ::-1]
 
         return bgr

@@ -55,3 +55,21 @@ def test_filter_image():
     diff = (img0 - img1).sum()
 
     assert abs(diff) > 0
+
+
+def test_RGB_mode():
+    """
+    Filter an image with RGB mode on and off.
+    Check that we get different results.
+    """
+
+    model = Instafilter("Lo-Fi")
+
+    f_image = __local__ / "Normal.jpg"
+
+    img1 = model(f_image)
+    img2 = model(f_image, is_RGB=True)
+
+    diff = (img1 - img2).sum()
+
+    assert abs(diff) > 0
