@@ -3,7 +3,7 @@
 [![PyVersion](https://img.shields.io/pypi/pyversions/instafilter.svg)](https://img.shields.io/pypi/pyversions/instafilter.svg)
 [![PyPI](https://img.shields.io/pypi/v/instafilter.svg)](https://pypi.python.org/pypi/instafilter)
 
-Modifiy images using Instagram-like filters in python.
+Modifiy images using Instagram-like filters in python. [Read how it works on Medium](https://medium.com/@travis.hoppe/instagram-filters-in-python-acc1ee7e67bc)!
 
     pip install instafilter
 

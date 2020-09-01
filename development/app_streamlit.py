@@ -4,6 +4,8 @@ from PIL import Image
 
 from instafilter import Instafilter
 
+st.set_option('deprecation.showfileUploaderEncoding', False)
+
 st.beta_set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",

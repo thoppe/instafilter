@@ -23,3 +23,6 @@ dist_production:
 	rm -rvf dist
 	python setup.py sdist
 	twine upload dist/*
+
+streamlit:
+	streamlit run development/app_streamlit.py
