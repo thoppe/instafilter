@@ -35,6 +35,7 @@ setuptools.setup(
     install_requires=[
         "numpy",
         "torch",
+        "opencv-python",
     ],
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
