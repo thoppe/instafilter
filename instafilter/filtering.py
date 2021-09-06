@@ -31,7 +31,7 @@ class Instafilter:
             names = " ".join(sorted(self.get_models()))
             raise KeyError(f"Model {name} not found. Known models: {names}")
 
-        state = torch.load(f_model)
+        state = torch.load(f_model, map_location=torch.device(self.device))
 
         net = ColorNet()
         net.load_state_dict(state)
