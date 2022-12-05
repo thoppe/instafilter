@@ -1,6 +1,7 @@
-__version__ = "0.3.1"
+__version__ = "0.3.2"
 
 """
+Version: 0.3.2: Fix cpu bug.
 Version: 0.3.1: Add opencv-python into the setup for loading images.
 Version: 0.3.0: Option for RGB images.
 Version: 0.2.0: Add batch_size as an option to handle larger images.
