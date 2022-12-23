@@ -12,8 +12,13 @@ exec(open(f_version).read())
 # Get the long description from the relevant file
 description = "Images filters learned from Instagram. Implemented in pytorch."
 
-with open("README.md") as FIN:
-    long_description = FIN.read()
+long_description = None
+if os.name == 'nt':
+    with open("README.md", encoding="utf8") as FIN:
+        long_description = FIN.read()
+else:
+    with open("README.md") as FIN:
+        long_description = FIN.read()
 
 
 setuptools.setup(
